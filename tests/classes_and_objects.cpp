@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 10:23:31 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/18 10:47:57 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/18 18:01:31 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 class	Car
 {
-
 	public:
 		std::string	make;
 		std::string	model;
@@ -33,7 +32,7 @@ class	Car
 
 		void	displayCarInfo()
 		{
-			std::cout << "Car Make : " << make << "\t Model : " << model << "\t Year : " << year << std::endl;
+			std::cout << "Car Make : " << make << "\t  Model : " << model << "\t Year : " << year << std::endl;
 		};
 };
 
