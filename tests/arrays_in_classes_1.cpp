@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:39:15 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/19 00:20:43 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/19 12:51:03 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ class Person
 			_age = age;
 		}
 
-		void	display_info()
+		void	display_info() const
 		{
 			std::cout << "Name: " << _name << std::endl;
 			std::cout << "Birth Year: " << _age << std::endl;
 		}
 
 		void	display_info(std::string message)
+		const
 		{
 			std::cout << message << std::endl;
 			display_info();
@@ -60,6 +61,66 @@ class	GroupOfPeople
 			// I don't need to do anything here
 			// So I just leave it empty
 		};
+		
+		// the above code is equivalent to the following code
+		// GroupOfPeople()
+		// {
+		// _member_count = 0;
+		// }
+		// or GroupOfPeople() : _member_count(0) {}
+
+		void	add_person(Person new_person)
+		{
+			if (_member_count < 5)
+			{
+				_members[_member_count] = new_person;
+				_member_count++;
+			}
+			else
+				std::cout << "Group full!" << std::endl;
+		};
+		
+		void	display_group_members()
+		const
+		{
+			int i = 0;
+
+			while (i < _member_count)
+			{
+				if (_member_count > 0 && i == 0)
+				{
+					std::cout << std::endl << "Group Members: " << std::endl << std::endl;
+					
+				}
+				_members[i].display_info();
+				std::cout << std::endl;
+				i++;
+			}
+		}
+};
+
+int	main(void)
+{
+	Person		Jaggy;
+	Person		Özgen;
+	Person		Tomek;
+
+	Jaggy.set_name("Jaggy");
+	Jaggy.set_age(30);
+
+	Özgen.set_name("Özgen");
+	Özgen.set_age(25);
+
+	Tomek.set_name("Tomek");
+	Tomek.set_age(31);
+
+	GroupOfPeople	Piscine;
+
+	Piscine.add_person(Jaggy);
+	Piscine.add_person(Özgen);
+	Piscine.add_person(Tomek);
+
+	Piscine.display_group_members();
 }
 
 // class Contact {
