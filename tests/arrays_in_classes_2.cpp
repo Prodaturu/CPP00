@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:31:51 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/19 16:51:00 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:43:29 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,22 @@ class	Car
 
 		// --- --- --- Getters / getter methods --- --- --- //
 		
+		//* const signifies 'object is not modified'
+		//* good practice to use const keyword with getter methods to avoid accidental changes
 		std::string	getMake()
+		const
 		{
 			return (this->make);
 		};
 
 		std::string	getModel()
+		const
 		{
 			return (model);
 		};
 
 		std::string	getYear()
+		const
 		{
 			return (year);
 		};
@@ -103,14 +108,81 @@ class	Garage
 			if (_carCount < 5)
 				_cars[_carCount++] = car;
 			else
-				std::cout << "Garage full!!, Find anothe Garage" << std::endl;
+				std::cout << "Garage full!!, Find anothe Garage." << std::endl;
+		}
+
+		void	garageStatus()
+		{
+			if (_carCount >= 5)
+				std::cout << "Garage full!!" << std::endl;
+			else
+				std::cout << "space left for " << (5 - _carCount) << " cars." << std::endl;
 		}
 		
 		void	displayCar(int index)
 		{
 			if (index < _carCount)
 				display_car_info(_cars[index]);
+			else if (index < 5 && index >= _carCount)
+				std::cout << "No car parked here." << index << std::endl;
 			else
-				std::cout << "Invalid index" << std::endl;
+				std::cout << "Invalid index " << index << std::endl;
 		}
+
+		void	displayAllCars()
+		{
+			for (int i = 0; i < _carCount; i++)
+				display_car_info(_cars[i]);
+		}
+};
+
+int	main(void)
+{
+	Car	wagonR;
+	Car	innova;
+	Car	i20;
+
+	wagonR.setMake("Maruti");
+	wagonR.setModel("Wagon R");
+	wagonR.setYear("2017");
+
+	innova.setMake("Toyota");
+	innova.setModel("Innova");
+	innova.setYear("2018");
+
+	i20.setMake("Hyundai");
+	i20.setModel("i20");
+	i20.setYear("2019");
+
+	Garage	garage;
+	garage.addCar(wagonR);
+	garage.addCar(innova);
+	garage.addCar(i20);
+
+	std::cout << std::endl;
+	std::cout << "Displaying each car seperately" << std::endl;
+
+	garage.displayCar(0);
+	garage.displayCar(1);
+	garage.displayCar(2);
+
+	std::cout << std::endl;
+	std::cout << "displaying 4th car, while 3 cars parked in garage for 5 cars" << std::endl;
+	garage.displayCar(3);
+
+	std::cout << std::endl;
+	std::cout << "displaying a car out of garage capacity" << std::endl;
+
+	garage.displayCar(5);
+	garage.displayCar(10);
+
+	std::cout << std::endl;
+	std::cout << "Displaying info of all cars at once" << std::endl;
+
+	garage.displayAllCars();
+
+	std::cout << std::endl;
+	// destructor function execute here when main function ends
+		// and just before program exits
+	return (0);
 }
