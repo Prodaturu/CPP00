@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:31:51 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/19 17:43:29 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:56:42 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ class	Car
 // Garage class (with the '_' prefix)
 class	Garage
 {
-	Car	_cars[5];	// array of Car objects (stores max of 5 car objects)
-	int	_carCount;	// to keep track of number of cars in the garage
 
 	private:
+		Car	_cars[5];	// array of Car objects (stores max of 5 car objects)
+		int	_carCount;	// to keep track of number of cars in the garage
 		void	display_car_info(Car	car)
 		{
 			std::cout << "Car Make : " << car.getMake();
