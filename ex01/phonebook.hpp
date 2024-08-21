@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 09:10:58 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/21 12:22:05 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:59:33 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,15 @@
 
 #include<iostream>
 #include<string>
-#include "Contact.hpp"
+#include "contact.hpp"
+
+// --- ANSI color codes --- //
+
+#define COLOR_RESET "\033[0m"
+#define COLOR_RED "\033[31m"
+#define COLOR_GREEN "\033[32m"
+#define COLOR_YELLOW "\033[33m"
+#define COLOR_BLUE "\033[34m"
 
 class PhoneBook
 {
@@ -31,10 +39,7 @@ class PhoneBook
 		PhoneBook();
 
 		// --- --- --- Destructor --- --- --- //
-		~PhoneBook()
-		{
-			std::cout << "PhoneBook object destroyed" << std::endl;
-		};
+		~PhoneBook();
 
 		// --- --- --- Setter functions --- --- --- //
 		void		add_contact();
@@ -44,9 +49,13 @@ class PhoneBook
 
 		// --- --- --- Getter functions --- --- --- //
 		int			get_index() const;
+		int			get_max_index() const;
 		int			get_contact_count() const;
-		Contact	get_contact(int index) const;
-		Contact*	get_Contact();
+		Contact		get_contact_at_index(int index) const;
+		Contact*	get_contacts() const;
+
+		// --- --- --- Utility functions --- --- --- //
+		void		delete_contact(int index);
 };
 
 #endif
