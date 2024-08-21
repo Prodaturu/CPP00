@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:39:15 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/19 12:51:03 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:21:07 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ int	main(void)
 
 // class PhoneBook {
 // 	private:
-// 		Contact contacts[8];  // Array of Contact objects
+// 		Contact Contact[8];  // Array of Contact objects
 // 		int contactCount;
 
 // 	public:
@@ -154,16 +154,16 @@ int	main(void)
 
 // 		void addContact(Contact newContact) {
 // 			if (contactCount < 8) {
-// 				contacts[contactCount] = newContact;
+// 				Contact[contactCount] = newContact;
 // 				contactCount++;
 // 			} else {
 // 				std::cout << "PhoneBook is full!" << std::endl;
 // 			}
 // 		}
 
-// 		void displayContacts() {
+// 		void displayContact() {
 // 			for (int i = 0; i < contactCount; i++) {
-// 				contacts[i].displayContact();
+// 				Contact[i].displayContact();
 // 			}
 // 		}
 // };

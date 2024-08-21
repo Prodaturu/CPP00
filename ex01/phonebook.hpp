@@ -6,7 +6,7 @@
 /*   By: sprodatu <sprodatu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 09:10:58 by sprodatu          #+#    #+#             */
-/*   Updated: 2024/08/18 09:31:43 by sprodatu         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:22:05 by sprodatu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,37 @@
 #define PHONEBOOK_HPP
 
 #include<iostream>
-
-// first name, last name, nickname, phone number, and
-// darkest secret. A saved contact can’t have empty fields.
+#include<string>
+#include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		std::string _firstName;
-		std::string _lastName;
-		std::string _nickname;
-		std::string _phoneNumber;
-		std::string _darkestSecret;	
-}
+		Contact		_Contact[8];
+		int			_index;
+		int			_contact_count;
+	
+	public:
+		// --- --- --- Constructor --- --- --- //
+		PhoneBook();
+
+		// --- --- --- Destructor --- --- --- //
+		~PhoneBook()
+		{
+			std::cout << "PhoneBook object destroyed" << std::endl;
+		};
+
+		// --- --- --- Setter functions --- --- --- //
+		void		add_contact();
+		void		search_contact();
+		void		display_contact();
+		void		display_all_Contact();
+
+		// --- --- --- Getter functions --- --- --- //
+		int			get_index() const;
+		int			get_contact_count() const;
+		Contact	get_contact(int index) const;
+		Contact*	get_Contact();
+};
 
 #endif
